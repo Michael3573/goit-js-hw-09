@@ -1,4 +1,4 @@
-const COLOR_DELAY = 1000;
+const Change_Color = 1000;
 let intId = null;
 
 const refs = {
@@ -11,11 +11,12 @@ refs.start.addEventListener('click', onStartChangeColor);
 refs.stop.addEventListener('click', onStopChangeColor);
 
 function onStartChangeColor() {
+  refs.start.disabled = true;
+  refs.stop.disabled = false;
+
   intId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-    refs.start.disabled = true;
-    refs.stop.disabled = false;
-  }, COLOR_DELAY);
+  }, Change_Color);
 }
 
 function onStopChangeColor() {
